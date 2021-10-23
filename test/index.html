@@ -38,29 +38,24 @@
     </div>
     <script type="text/javascript">
     const URL = "https://script.google.com/macros/s/AKfycbynPd9YpX0-T7OfXGcpxEbHb6CCrv8FrpDdq9LDHf0Z/dev";
-    const STABLE_URL="https://script.google.com/macros/s/AKfycbxegIAithHsxJ-YSe-MIiJFiPiJxTlbQlgXmnlf9idJLncI-GUb0Yg371FGp8YUNRPI5g/exec";
+    const STABLE_URL = "https://script.google.com/macros/s/AKfycbxegIAithHsxJ-YSe-MIiJFiPiJxTlbQlgXmnlf9idJLncI-GUb0Yg371FGp8YUNRPI5g/exec";
 
 
-    var settings = {
-        'cache': false,
-        'dataType': "jsonp",
-        "async": true,
-        "crossDomain": true,
-        "url": STABLE_URL,
-        "method": "GET",
-        "headers": {
-            "accept": "application/jsonp",
-            "Access-Control-Allow-Origin": "*"
-        }
+
+    const url = STABLE_URL;
+
+    function getData() {
+        fetch(url).then((res) => {
+            return res.json()
+        }).then((json) => {
+            console.log(json)
+        })
+
     }
 
-
     $("#btn").click(function() {
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-
-        });
+        console.log('loading');
+        getData()
     });
     </script>
 </body>
