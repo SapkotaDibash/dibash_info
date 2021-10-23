@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Dibash Sapkota">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main_res/css__var.css">
+    <link rel="stylesheet" href="../main_res/css_acc.css">
+    <script src="../main_res/script_acc.js"></script>
+    <link rel="shortcut icon" href="https://neverland017.web.app/icons/starIcon.png" type="image/png">
+    <title>Login | Account Management System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="root">
+        <h1>Account Management System</h1>
+        <hr>
+        <div class="modal root">
+            <div class="modal-content animate_zoom">
+                <div class="container">
+                    <label>
+                        Username:
+                        <input type="text" id="loginUsername" placeholder="Enter Username">
+                    </label>
+                    <label>
+                        Password:
+                        <input type="text" class="psw psw_hidden" placeholder="Enter Password">
+                    </label>
+                    <div class="btn_container_div">
+                        <button id="btn">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    const URL = "https://script.google.com/macros/s/AKfycbynPd9YpX0-T7OfXGcpxEbHb6CCrv8FrpDdq9LDHf0Z/dev";
+    const STABLE_URL="https://script.google.com/macros/s/AKfycbxegIAithHsxJ-YSe-MIiJFiPiJxTlbQlgXmnlf9idJLncI-GUb0Yg371FGp8YUNRPI5g/exec";
+
+
+    var settings = {
+        'cache': false,
+        'dataType': "jsonp",
+        "async": true,
+        "crossDomain": true,
+        "url": STABLE_URL,
+        "method": "GET",
+        "headers": {
+            "accept": "application/jsonp",
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+
+
+    $("#btn").click(function() {
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+
+        });
+    });
+    </script>
+</body>
+
+</html>
