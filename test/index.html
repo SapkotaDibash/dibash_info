@@ -48,14 +48,18 @@
         fetch(url).then((res) => {
             return res.json()
         }).then((json) => {
-            console.log(json)
-        })
+            console.log(json);
+			alert('Success');
+        }).catch((err) => {
+            console.log(err);
+            alert(err);
+        });
 
     }
 
     $("#btn").click(function() {
         console.log('loading');
-        getData()
+        getData();
     });
     </script>
 </body>
