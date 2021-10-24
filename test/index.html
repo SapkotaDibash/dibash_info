@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="root">
+    <div class="root" id="root">
         <h1>Account Management System</h1>
         <hr>
         <div class="modal root">
@@ -27,7 +27,7 @@
                     </label>
                     <label>
                         Password:
-                        <input type="text" class="psw psw_hidden" placeholder="Enter Password">
+                        <input type="text" class="psw psw_hidden" id="loginPassword" placeholder="Enter Password">
                     </label>
                     <div class="btn_container_div">
                         <button id="btn">Login</button>
@@ -36,31 +36,45 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
     const URL = "https://script.google.com/macros/s/AKfycbynPd9YpX0-T7OfXGcpxEbHb6CCrv8FrpDdq9LDHf0Z/dev";
     const STABLE_URL = "https://script.google.com/macros/s/AKfycbxegIAithHsxJ-YSe-MIiJFiPiJxTlbQlgXmnlf9idJLncI-GUb0Yg371FGp8YUNRPI5g/exec";
 
 
 
-    const url = STABLE_URL;
+const url=STABLE_URL;
+// const url=URL;
 
-    function getData() {
-        fetch(url).then((res) => {
-            return res.json()
+    function getData(fetch_url,nextFunction) {
+        fetch(fetch_url).then((res) => {
+            return res.json();
         }).then((json) => {
-            console.log(json);
-			alert('Success');
+            nextFunction(json);
         }).catch((err) => {
             console.log(err);
-            alert(err);
         });
-
     }
 
     $("#btn").click(function() {
-        console.log('loading');
-        getData();
+        const username=document.getElementById("loginUsername").value;
+        const password=document.getElementById("loginPassword").value;
+        const urlNew=url+`?q=login&userName=${username}&password=${password}`;
+
+        getData(urlNew,showMenu_afterLogin);
+        
     });
+
+    function showMenu_afterLogin(response){
+        console.log(response);
+        if(response.code===1){
+            document.getElementById("root").innerHTML=response.html;
+            alert('Success');
+        }else{
+            alert(response.html);
+        }
+
+    }
     </script>
 </body>
 
