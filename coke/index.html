@@ -1,22 +1,186 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="HTML,CSS,JavaScript">
-    <meta name="author" content="Dibash Sapkota">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://neverland017.web.app/icons/starIcon.png" type="image/png">
-    <title>Coke Dealer Detail</title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#337ab7">
+  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Neverland Clan Management Software</title>
+
+
+  <link rel="shortcut icon" href="icon.png" type="image/png">
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
   <style>
-    *{margin:0,padding:0}
+    .body {
+      overflow: hidden;
+    }
+    
+    body {
+      margin: 0;
+      padding 0;
+    }
+    
+    iframe {
+      padding: 0;
+      margin: 0;
+    }
+    
+    html,
+    body,
+    div,
+    iframe {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    iframe {
+      border: none;
+    }
+    
+    html,
+    body {}
   </style>
 </head>
 
 <body>
-<iframe src="https://script.google.com/macros/s/AKfycbyM8GoHIC9hsWvAjm05fJEr9JOgcAJ_KnH0M8qM427rJQ7zLUzvSPqeDTEuXA1YL8Cpbg/exec" style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
+  <div class='appDiv'>
+    <iframe src="https://script.google.com/macros/s/AKfycbyM8GoHIC9hsWvAjm05fJEr9JOgcAJ_KnH0M8qM427rJQ7zLUzvSPqeDTEuXA1YL8Cpbg/exec" width=100% style="height:100vh" marginwidth="0" marginheight="0" align="top" scrolling="Yes" frameborder="0" hspace="0" vspace="0"
+      frameborder="0">Check Your Browser</iframe>
 
+  </div>
+
+  <script>
+  /*
+	window.onbeforeunload = function (e) {
+		var message = "Are you sure ?";
+		var firefox = /Firefox[\/\s](\d+)/.test(navigator.userAgent);
+		if (firefox) {
+			//Add custom dialog
+			//Firefox does not accept window.showModalDialog(), window.alert(), window.confirm(), and window.prompt() furthermore
+			var dialog = document.createElement("div");
+			document.body.appendChild(dialog);
+			dialog.id = "dialog";
+			dialog.style.visibility = "hidden";
+			dialog.innerHTML = message; 
+			var left = document.body.clientWidth / 2 - dialog.clientWidth / 2;
+			dialog.style.left = left + "px";
+			dialog.style.visibility = "visible";  
+			var shadow = document.createElement("div");
+			document.body.appendChild(shadow);
+			shadow.id = "shadow";		
+			//tip with setTimeout
+			setTimeout(function () {
+				document.body.removeChild(document.getElementById("dialog"));
+				document.body.removeChild(document.getElementById("shadow"));
+			}, 0);
+		}
+		return message;
+	}
+	*/
+window.onbeforeunload = function (e) {
+    e = e || window.event;
+
+    // For IE and Firefox prior to version 4
+    if (e) {
+        e.returnValue = 'Sure?';
+    }
+
+    // For Safari
+    return 'Sure?';
+};
+    let offlinePage = "<div style='padding:1rem;text-align:center;height:auto;'><div style='color:red;font-size:10em;height:auto;'>⚠</div><h2>No connection to the internet</h2><p>This Display has a connection to your network but no connection to the internet.</p><a href='https://theboss0.web.app/web/fb/'>ReLoad</a></div>";
+
+    window.onbeforeunload = function(e) {
+      return 'Are you sure you want to leave page';
+    };
+
+    function isOnline() {
+      var ifConnected = window.navigator.onLine;
+      console.log(ifConnected);
+      if (ifConnected) {
+
+      } else {
+        document.querySelector('.appDiv').innerHTML = offlinePage;
+        document.querySelector('.appDiv')[0].innerHTML = offlinePage;
+      }
+
+
+    }
+    isOnline();
+  </script>
+  <script>
+    function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    let install = getParameterByName('install');
+
+
+
+
+
+
+
+
+    if (install == 'true') {
+      console.log('install Alert');
+    }
+  </script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+
+    let deferredPrompt;
+    var div = document.querySelector('.add-to');
+    var button = document.querySelector('.add-to-btn');
+    //div.style.display = 'none';
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      //div.style.display = 'block';
+
+      if (install == 'true') {
+        // hide our user interface that shows our A2HS button
+        //div.style.display = 'none';
+        // Show the prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice
+          .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
+      }
+
+    });
+
+  </script>
 </body>
 
 </html>
