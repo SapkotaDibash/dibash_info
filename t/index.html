@@ -31,12 +31,23 @@
     
     <script>
         const currentPath = window.location.pathname;
-        console.log(currentPath)
+        console.log(currentPath);
+        
+        
+        
+        const router = new Navigo('/t/');
+
+            router.on('/test', function () {
+                console.log('test')
+            });
+
+            router.resolve();
+            router.navigate('/about');
+
 
     </script>
     
     
-    <script src="./script.js"> </script>
 
 </body>
 
