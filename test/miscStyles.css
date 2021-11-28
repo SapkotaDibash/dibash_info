@@ -1,0 +1,72 @@
+.customAlert_err {
+    background-color: #f44336;
+}
+
+.customAlert_success {
+    background-color: #04AA6D;
+}
+
+.customAlert {
+    background-color: #ebbc00;
+}
+
+.alert {
+    padding: 0.8rem;
+    color: white;
+    position: absolute;
+    top: 78px;
+    right: 1.5rem;
+    z-index: 10;
+    box-shadow: 0.4rem 0.4rem #FFF;
+    font-size: 1.25rem;
+}
+
+.closebtn {
+    height: 100%;
+    margin-left: 0.15rem;
+    font-weight: 900;
+    float: right;
+    font-size: 2rem;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: transparent;
+    color: black;
+    mix-blend-mode: difference;
+    text-shadow: 3px 2px 0px #fff;
+}
+
+.closebtn:hover {
+    transform: scale(1.3);
+}
+
+.darkDiv_alert_t {
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    opacity: 30%;
+    position: absolute;
+    z-index: 6;
+    top: 0;
+}
+
+.confirmContainer {
+    z-index: 9;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    padding: 3rem;
+    border-radius: 21px;
+    background-color: #272b2ddb;
+    color: white;
+    min-width: 50%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .confirmContainer {
+        padding: 1.5rem;
+        min-width: 75%;
+    }
+}
