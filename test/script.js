@@ -1,8 +1,71 @@
-/**
- * shows loading bar on top and spinner
- * @param {string} status 
- * @returns 
- */
+const STABLE_URL = "https://script.google.com/macros/s/AKfycbxwNa8unWD7_1OyfNmZR82VNSvWzEMFOXnRT48BtpHLs7v7L5IdreaPNZBzXJBq5IcO/exec"
+const url_pages = "https://script.google.com/macros/s/AKfycbyzXAh-ZvkRoXBVQCkAnLgYgCKnEhRy9HFnL_vUKk9hcvJtr3KHugafLpU6jE3LkTVZLQ/exec";
+var authorization = '';
+
+const url = STABLE_URL;
+// const url=URL;
+
+function getData(fetch_url, nextFunction) {
+    fetch(fetch_url).then((res) => {
+        return res.json();
+    }).then((json) => {
+        nextFunction(json);
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+$("#btn_login").click(function() {
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+    const urlNew = url + `?q=login&user=${username}&pass=${password}&ss=1`;
+    loading();
+    getData(urlNew, showMenu_afterLogin);
+
+});
+
+function showMenu_afterLogin(response) {
+    loading('end');
+
+    if (response.code === 1) {
+        $("body").empty().append(response.html);
+        authorization = response.auth;
+    } else {
+        alert(response.msg);
+    }
+
+}
+
+function loadAppSection(section) {
+    const pageUrl = `${url_pages}?q=${section}&authorization=${authorization}`;
+    loading();
+    getData(pageUrl, showPageOnApp);
+}
+
+function showPageOnApp(pageData) {
+    console.log(pageData)
+    loading('end');
+
+    if (pageData.code === 1) {
+        $('#root').empty().append(pageData.html)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function loading(status = '') {
     const newStatus = status.toString().toLowerCase();
     if (newStatus.length > 0) {
