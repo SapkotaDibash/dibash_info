@@ -1,0 +1,122 @@
+:root {
+  --spinnerColor: red;
+  --bodyBgColor: #80808024;
+  --bodyTxtColor: #3c4044;
+  --navBgColor: #749EB2;
+  --navTxtColor: #080A25;
+  --navBgColor: #03bcff;
+  --navTxtColor: #030A04;
+  --navMenuBgColor: #36b6d7;
+  --navMenuTxtColor: black;
+  --btnColorDisabled: black;
+  --btnBgColorDisabled: linear-gradient(to bottom, gainsboro, gainsboro);
+  --btnBorderDisabled: 1px solid #00000085;
+  --btnColor: #ffffff;
+  --btnBgColor: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+  --btnBorder: 1px solid #057fd0;
+  --fieldSet-border: 2px solid white;
+  --fieldSet-text: red;
+  --selectBG_Color: white;
+  --selectTxt_Color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.25rem 0.75rem 0.25rem .75rem;
+  border: var(--btnBorder);
+  background: var(--btnBgColor);
+  color: var(--btnColor);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 4px #999;
+  text-shadow: 0px -1px 0px #5b6178;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+button:active {
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+  filter: brightness(0.8);
+}
+
+.inputContainer {
+  padding: 2rem;
+}
+
+.inputContainer label input {
+  width: 100%;
+}
+
+.inputContainer label {
+  font-weight: bold;
+  line-height: 2rem;
+  width: 100%;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border: thin solid grey;
+  resize: none;
+}
+
+
+/* ALERT CSS */
+
+.customAlert_err {
+  background-color: #f44336;
+}
+
+.customAlert_success {
+  background-color: #04AA6D;
+}
+
+.customAlert {
+  background-color: #ebbc00;
+}
+
+.alert {
+  padding: 0.8rem;
+  color: white;
+  position: absolute;
+  top: 78px;
+  right: 1.5rem;
+  z-index: 5;
+  box-shadow: 0.4rem 0.4rem #FFF;
+  font-size: 1.25rem;
+}
+
+.closebtn {
+  height: 100%;
+  margin-left: 0.15rem;
+  font-weight: 900;
+  float: right;
+  font-size: 2rem;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: transparent;
+  color: black;
+  mix-blend-mode: difference;
+  text-shadow: 3px 2px 0px #fff;
+}
+
+.closebtn:hover {
+  transform: scale(1.3);
+}
