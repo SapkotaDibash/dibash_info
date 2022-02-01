@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+
+    <!-- Load external CSS styles -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"
+        integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <label>User Name :-<input class="disableOnStart" id="USER_INPUT_ONE"></label>
+    </div>
+    <br>
+    <hr>
+
+    <div class="inputContainer">
+        <label>Description<input id="Desc_I"></label><br>
+        <label>Member Name<input id="Mem_Name"></label><br>
+        <label>Desc_2<input id="Desc_II"></label><br>
+        <div class="locationContainer"></div>
+    </div>
+    <br>
+    <hr>
+    <div class="buttonContainer">
+        <button id="btn_saveData">Save Data</button>
+        <button id="btn_saveAndUpload">Save And Upload</button>
+        <button id="btn_UploadSaved">Upload Saved Data</button>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="buttonhandlers.js"></script>
+    <script src="alert.js"></script>
+</body>
+
+</html>
