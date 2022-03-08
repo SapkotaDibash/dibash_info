@@ -1,54 +1,19 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    <link rel="stylesheet" href="../main_res/css__var.css">-->
-    <!--    <link rel="stylesheet" href="../main_res/css_acc.css">-->
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-    <!--    <link rel="stylesheet" href="./css_acc_menuBar.css">-->
-    <!--    <script src="../main_res/script_acc.js"></script>-->
-    <!--    <link rel="shortcut icon" href="https://neverland017.web.app/icons/starIcon.png" type="image/png">-->
-    <title>Router Testing | hello</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//unpkg.com/navigo"></script>
+	<title>Svelte app</title>
+
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+	<script defer src="./global.js"></script>
 </head>
 
 <body>
-    <button id="btn">Click Me</button>
-
-
-    <a href="/ddd" data-navigo>ddd</a>
-
-
-
-    <a href="/aaa" data-navigo>aaa</a>
-
-    <a href="/vvv" data-navigo>vvvv</a>
-    <a href="/test" data-navigo>ttt</a>
-    <br>
-    
-    
-    <script>
-        const currentPath = window.location.pathname;
-        console.log(currentPath);
-        
-        
-        
-        const router = new Navigo('/t/');
-
-            router.on('/test', function () {
-                console.log('test')
-            });
-
-            router.resolve();
-            router.navigate('/about');
-
-
-    </script>
-    
-    
-
 </body>
-
 </html>

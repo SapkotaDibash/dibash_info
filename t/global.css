@@ -1,0 +1,102 @@
+:root {
+	--main-theme-color: #00ff9dbd;
+	--second-theme-color: red;
+
+	--input-primary-color-txt: grey;
+	--input-focus-color-bg: #00ff9d75;
+	--body-bg-color: #e6e6e6;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition-duration: 0;
+	transition: 400ms ease-in-out;
+}
+
+*:focus {
+	outline: none;
+}
+
+#root {
+	padding: 5px;
+	background-color: var(--body-bg-color);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+input {
+	width: 100%;
+	padding: 5px 8px;
+}
+
+input,
+textarea,
+select {
+	background-color: #ffffff;
+	margin-bottom: 5px;
+	border: none;
+	border-bottom: 2px solid var(--input-primary-color-txt);
+	border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	border-color: var(--input-focus-color-bg);
+}
+
+button {
+	padding: 5px 12px;
+	border: 2px solid gray;
+}
+
+button:focus {
+	border-color: var(--input-focus-color-bg);
+}
+
+fieldset {
+	padding: 10px 10px;
+}
+
+
+.alert {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	background-color: grey;
+	color: white;
+	max-width: 80%;
+	right:-80%
+}
+
+.alert:hover {
+	box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+	border-radius: 2px;
+}
+
+.alert_message {
+	padding: 1rem 1rem 1rem 1rem;
+	display: inline-block;
+}
+
+.alert_success {
+	background-color: rgb(3, 66, 3);
+}
+
+.alert_error {
+	background-color: rgb(66, 3, 3);
+}
+
+.darkBG {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.26);
+}
