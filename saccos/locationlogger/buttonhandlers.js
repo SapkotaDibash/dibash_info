@@ -36,7 +36,7 @@ function saveDataToLocalStorage() {
 
     const parsedData = JSON.parse(data);
 
-    parsedData.push(Data)
+    parsedData.push(Data);
 
 
     window.localStorage.setItem(LOCATION_VAR, JSON.stringify(parsedData));
@@ -44,7 +44,7 @@ function saveDataToLocalStorage() {
     $("#Desc_I").val('');
     $("#Mem_Name").val('');
     $("#Desc_II").val('');
-    alert('Data Successfully Saved');
+    // alert('Data Successfully Saved');
 }
 
 
@@ -63,6 +63,7 @@ function uploadDataToServer() {
             }
         })
         .catch((error) => {
+            alert('ERROR ON UPLOADING DATA');
             console.error('Error:', error);
         });
 }

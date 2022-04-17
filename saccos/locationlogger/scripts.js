@@ -37,4 +37,4 @@ function showPosition(position) {
   loc.latitude = position.coords.latitude;
   loc.longitude = position.coords.longitude;
 }
-updateLocation()
+updateLocation();
